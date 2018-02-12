@@ -1,0 +1,12 @@
+line 2: conflicting types for 'x'
+line 7: redefinition of 'a'
+line 12: redeclaration of 'x'
+line 16: conflicting types for 'r'
+line 21: 'q' undeclared
+line 25: 'y' has type void
+line 27: 'pp' has type void
+line 36: redeclaration of 'p'
+line 43: redefinition of 'funct1'
+line 48: redeclaration of 'e'
+line 49: 'z' has type void
+line 61: 'c' undeclared

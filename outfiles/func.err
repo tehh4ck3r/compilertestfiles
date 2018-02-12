@@ -1,0 +1,9 @@
+line 16: conflicting types for 'Void'
+line 20: conflicting types for 'var_arg'
+line 21: conflicting types for 'var_arg'
+line 22: conflicting types for 'var_arg'
+line 30: redeclaration of 'a'
+line 32: 'b' has type void
+line 42: redefinition of 'all_the_vars'
+line 44: 'x' has type void
+line 46: redeclaration of 'a'
