@@ -1,0 +1,20 @@
+line 4: 'asdf' has type void
+line 5: 'bbb' has type void
+line 6: conflicting types for 'x'
+line 10: conflicting types for 'func1'
+line 18: redeclaration of 'x'
+line 18: redeclaration of 'x'
+line 22: redeclaration of 'x'
+line 22: redeclaration of 'z'
+line 23: redeclaration of 'a'
+line 23: redeclaration of 'b'
+line 24: redeclaration of 'x'
+line 26: redeclaration of 'a'
+line 26: redeclaration of 'b'
+line 26: redeclaration of 'c'
+line 30: 'd' undeclared
+line 34: 'd' undeclared
+line 47: 'func6' undeclared
+line 52: redefinition of 'functiondefn'
+line 58: conflicting types for 'a'
+line 59: conflicting types for 'a'
