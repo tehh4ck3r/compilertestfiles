@@ -1,32 +1,51 @@
+/*
+ * No guarantuees that the comments are 100% accurate; I may have
+ * missed a type error or have false positives.
+ * --KM
+ */
+char* strfunc(int a, char b, ...);
+
 int func(int a, int b) {
     int* z;
     void *c;
     char **d;
-    *a;
+    void **e;
+    *a; /* error: cannot dereference an integer */
     *z;
-    *c;
+    *c; /* error: cannot dereference void*  */
     *d;
-    3[3][4];
+    *e; 
+    3[3][4]; /* error: can't array-reference an int literal */
     d[1][2];
     return 1;
 }
-
+void func2(void) {
+    int a, b, c;
+    char d;
+    void* vp;
+    strfunc(a, d);
+    strfunc(a, d, vp);
+    strfunc(a, d, a, a);
+    strfunc(d, d);
+    strfunc(a, a);
+    strfunc(a);  /* error: too few parameters */
+    return 3;   /* error: invalid return type */
+}
 int main(int argc, char** argv) {
-    int x;
-    int y;
-    char z;
-    char w;
-    int* a;
-    int* lul;
-    int f[10];
-    char* yolo;
+    int x, y, f[10];
+    char z, w;
+    int* a, *lul;
+    char* yolo, *_b;
     void* _a;
-    char* _b;
 
-    x - a; /* should be error */
-    a + lul; /* should be error */
+    x - a; /* error, can't subtract ptr from int */
+    a + lul; /* error, can't add 2 pointers */
 
-    w && func;
+    w && func2(); /* error, can't AND with void */ 
+
+    w && func(x, y);
+    w && z || w && x && y && *a;
+    x(); /* error, called obj not a function */
 
     y * x;
 
@@ -50,23 +69,27 @@ int main(int argc, char** argv) {
     w % x / z;
     
     _a != _b;
-    _a == x;
-    x == _a;
+    x == _a; /* error, cannot compare int and void ptr */
+    _a == x; /* error, cannot compare void ptr and int */
 
-    _a < _b;
-    _a < x;
-    x < z;
+    _a < _b; /* error, cannot compare void ptr and char ptr */
+    yolo < _b > yolo; /* error, cannot compare int [result of char* < char*] and char* */
+    _a < x; /* error, cannot compare void ptr and int */
+    x < z; 
 
-    _a >= _b;
-    _a <= x;
+    _a >= _b; /* error, cannot compare void ptr with char ptr  */
+    _a <= x; /* error, cannot compare void ptr with int */
     x > z;
-    _a > x;
+    _a > x; /* error, cannot compare void ptr with int */
 
     x - 3;
     y + 1;
     yolo == "asdf";
     f[13];
     f[x];
+    f[*a];
+    f[z];
+    f[argv[1][1]];
 
     -y;
     !y;
@@ -78,12 +101,32 @@ int main(int argc, char** argv) {
     sizeof y;
     *a;
     &y;
-    &10;
+    &10; /* error, lvalue required */
 
     func(x, y);
     f && z;
-    -yolo;
+    -yolo; /* error: can't negate a char ptr */
     -w;
     -x;
-    -_a;
+    -_a; /* error: can't negate a void ptr */
+    
+    while(x) {
+        if (1) {
+            break;
+        }
+        if (main) { /* error: main not a valid test expr */
+            break;
+        }
+        {
+            break;
+        }
+    }
+    break; /* error: break not in loop */ 
+    for (x = 1 ; x < 1 ; x = x + 1 )
+    {
+        while (1) {
+            break;
+        }
+        break;
+    }
 }

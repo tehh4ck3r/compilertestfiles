@@ -1,0 +1,22 @@
+line 13: invalid operand to unary *
+line 15: invalid operand to unary *
+line 18: invalid operands to binary []
+line 31: invalid arguments to called function
+line 32: invalid return type
+line 41: invalid operands to binary -
+line 42: invalid operands to binary +
+line 44: invalid operands to binary &&
+line 48: called object is not a function
+line 72: invalid operands to binary ==
+line 73: invalid operands to binary ==
+line 75: invalid operands to binary <
+line 76: invalid operands to binary >
+line 77: invalid operands to binary <
+line 80: invalid operands to binary >=
+line 81: invalid operands to binary <=
+line 83: invalid operands to binary >
+line 104: lvalue required in expression
+line 108: invalid operand to unary -
+line 111: invalid operand to unary -
+line 117: invalid type for test expression
+line 124: break statement not within loop
